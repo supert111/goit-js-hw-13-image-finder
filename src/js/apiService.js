@@ -1,5 +1,4 @@
 import galleryTemplate from '../templates/gallery-template.hbs';
-import cardTemplate from '../templates/card-template.hbs';
 import setting from '../js/settings/index';
 var debounce = require('lodash.debounce');
 
@@ -12,6 +11,9 @@ const inputName = inputFormRef.elements.query;
 //прослушиватель на инпут + debounce
 inputName.addEventListener('input', debounce(() =>{
 const searchKeyWord = inputName.value;
+fetchImage (searchKeyWord)
+//.then()
+
 console.log(searchKeyWord);
     console.dir(inputName);
 },500)) 
@@ -23,6 +25,8 @@ async function fetchImage (searchKey) {
     const result = await searchResult.json();
     return result;
 }
- console.log(fetchImage('yellow flowers'));
+
+//function renderImages(image)
+ //console.log(fetchImage('yellow flowers'));
 //https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchKey}&page=номер_страницы&per_page=12&key=твой_ключ
 // key: 20667930-64a6ab52d11330f7fc72003b0
