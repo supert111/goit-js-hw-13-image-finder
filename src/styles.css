@@ -18,3 +18,15 @@ body {
    */
   background-image: url('./images/bg-pattern.png');
 }
+
+.search-form {
+  display: block;
+  text-align: center; 
+  margin: 20px 0 0;
+}
+.search-form input {
+width: 308px;
+height: 40px;
+border-width: 3px;
+border-radius: 5px;
+}
