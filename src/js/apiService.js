@@ -7,17 +7,19 @@ const pageNumber = 1;
 
 const inputFormRef = document.querySelector('.search-form');
 const inputName = inputFormRef.elements.query;
+const blockForMarkupRef = document.querySelector('.wrapper-tamplate'); 
 
 //прослушиватель на инпут + debounce
 inputName.addEventListener('input', debounce(() =>{
 const searchKeyWord = inputName.value;
 fetchImage (searchKeyWord)
-//.then()
+.then(renderImages)
+.catch(error => console.log(error));
 
 console.log(searchKeyWord);
     console.dir(inputName);
-},500)) 
-// const search
+},500)); 
+
 
 
 async function fetchImage (searchKey) {
@@ -25,8 +27,10 @@ async function fetchImage (searchKey) {
     const result = await searchResult.json();
     return result;
 }
-
-//function renderImages(image)
+function renderImages(images) {
+    const markup = galleryTemplate (images);
+    blockForMarkupRef.insertAdjacentHTML('afterbegin', markup);
+}
  //console.log(fetchImage('yellow flowers'));
 //https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchKey}&page=номер_страницы&per_page=12&key=твой_ключ
 // key: 20667930-64a6ab52d11330f7fc72003b0
