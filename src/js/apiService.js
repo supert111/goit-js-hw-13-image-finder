@@ -3,11 +3,13 @@ import setting from '../js/settings/index';
 var debounce = require('lodash.debounce');
 
 const { BASE_URL, API_KEY } = setting;
-const pageNumber = 1;
+let pageNumber = 1;
 
 const inputFormRef = document.querySelector('.search-form');
 const inputName = inputFormRef.elements.query;
 const blockForMarkupRef = document.querySelector('.wrapper-tamplate'); 
+const buttonMoreImagesRef = document.querySelector('.button-more-images');
+buttonMoreImagesRef.addEventListener('click', goToNextPage(pageNumber));
 
 //прослушиватель на инпут + debounce
 inputName.addEventListener('input', debounce(() =>{
@@ -32,5 +34,12 @@ function renderImages(images) {
     blockForMarkupRef.insertAdjacentHTML('afterbegin', markup);
 }
  //console.log(fetchImage('yellow flowers'));
-//https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchKey}&page=номер_страницы&per_page=12&key=твой_ключ
-// key: 20667930-64a6ab52d11330f7fc72003b0
+
+
+   function  goToNextPage()  {
+        // if(pageNumber <= 0) {
+        //     return;
+        // }
+         pageNumber += 1;
+        console.log(pageNumber)
+    }
