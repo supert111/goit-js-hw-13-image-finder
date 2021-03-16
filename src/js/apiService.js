@@ -14,7 +14,7 @@ export default class NewsApiService {
         const url = 
             `${BASE_URL}/api/?image_type=photo&orientation=horizontal&q=${this.searchKey}&page=${this.page}&per_page=12&key=${API_KEY}`;
         
-        fetch(url)
+        return fetch(url)
             .then(result => result.json())
             .then(renderImages) 
             .then(data => {

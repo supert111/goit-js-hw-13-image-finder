@@ -6,7 +6,7 @@ const inputFormRef = document.querySelector('.search-form');
 const inputName = inputFormRef.elements.query;
 
 
-const newsApiService = NewsApiService;
+const newsApiService = new NewsApiService;
 
 //прослушиватель на инпут + debounce
 inputName.addEventListener('input', debounce(() =>{
