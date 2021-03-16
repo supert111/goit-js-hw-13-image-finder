@@ -2,8 +2,7 @@ import setting from '../js/settings/index';
 import galleryTemplate from '../templates/gallery-template.hbs';
 const { BASE_URL, API_KEY } = setting;
 const blockForMarkupRef = document.querySelector('.wrapper-tamplate'); 
-const buttonMoreImagesRef = document.querySelector('.button-more-images');
-buttonMoreImagesRef.addEventListener('click', fetch);
+
 export default class NewsApiService {
     constructor () {
         this.searchKey = '';
@@ -22,6 +21,10 @@ export default class NewsApiService {
             });
             
     }
+    resetPage() {
+        blockForMarkupRef.innerHTML = '';
+        this.page = 1;
+    }
 
     get query() {
         return this.searchKey;
@@ -35,7 +38,7 @@ export default class NewsApiService {
 
 function renderImages(images) {
     const markup = galleryTemplate (images);
-    blockForMarkupRef.insertAdjacentHTML('afterbegin', markup);
+    blockForMarkupRef.insertAdjacentHTML('beforeend', markup);
 }
 
 
