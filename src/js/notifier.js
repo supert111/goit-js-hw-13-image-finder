@@ -2,7 +2,7 @@ import { alert, defaultModules, error } from '.././../node_modules/@pnotify/core
 import * as PNotifyMobile from '.././../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import '@pnotify/core/dist/Material.css';
 import { defaults } from '@pnotify/core';
-//import 'material-design-icons/iconfont/material-icons.css';
+import 'material-design-icons/iconfont/material-icons.css';
 
 defaults.styling = 'material';
 defaults.icons = 'material';
