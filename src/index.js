@@ -4,8 +4,6 @@ import {alert, defaultModules, PNotifyMobile, error} from './js/notifier';
 
 var debounce = require('lodash.debounce');
 
-
-
 const inputFormRef = document.querySelector('.search-form');
 const inputName = inputFormRef.elements.query;
 const buttonMoreImagesRef = document.querySelector('.button-more-images');
@@ -21,7 +19,10 @@ inputName.addEventListener('input', debounce(() =>{
         
         return error({
             title: 'Empty field.',
-            text: 'Please enter your request!'
+            text: 'Please enter your request!',
+            dir1: 'down', dir2: 'right', 
+            firstpos1: 90, firstpos2: 90,
+            delay: 2000
           });
     }
     newsApiService.resetPage();
