@@ -22,8 +22,13 @@ export default class NewsApiService {
             
     }
     resetPage() {
-        blockForMarkupRef.innerHTML = '';
+        //blockForMarkupRef.innerHTML = '';
         this.page = 1;
+        this.clearBlockForMarkup ();
+    }
+    
+    clearBlockForMarkup () {
+        blockForMarkupRef.innerHTML = '';
     }
 
     get query() {

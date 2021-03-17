@@ -1,7 +1,6 @@
 import './styles.css';
-import '../node_modules/material-design-icons/iconfont/material-icons.css';
 import NewsApiService from './js/apiService';
-// import notifaer from './js/notifier'
+import {alert, defaultModules, PNotifyMobile, error} from './js/notifier';
 
 var debounce = require('lodash.debounce');
 
@@ -18,8 +17,12 @@ const newsApiService = new NewsApiService;
 inputName.addEventListener('input', debounce(() =>{
     newsApiService.query = inputName.value;
     if (newsApiService.query === '') {
-        return
-        //notifaer.error({text: "Empty field, please enter your request!"});
+        newsApiService.clearBlockForMarkup ();
+        
+        return error({
+            title: 'Empty field.',
+            text: 'Please enter your request!'
+          });
     }
     newsApiService.resetPage();
     const searchSee = newsApiService.query;
@@ -37,4 +40,3 @@ inputName.addEventListener('input', debounce(() =>{
         newsApiService.fetchArticles();
     }
 
-    
