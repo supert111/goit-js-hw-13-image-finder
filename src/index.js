@@ -22,19 +22,12 @@ inputSearchKey .addEventListener('input', debounce(() =>{
             title: 'Empty field.',
             text: 'Please enter your request!',
             delay: 500
-          });
+        });
     }
-    newsApiService.resetPage();
-    const searchSee = newsApiService.query;
-    newsApiService.fetchArticles(searchSee);
-    
-    // fetchImage () {
-        // }
-        // .then(renderImages)
-        // .catch(error => console.log(error));
-        
-        console.log(newsApiService.query);
-    },1000)); 
+        newsApiService.resetPage();
+        const searchSee = newsApiService.query;
+        newsApiService.fetchArticles(searchSee);
+},1000)); 
     
     function fetchArticles () {
         newsApiService.fetchArticles();
