@@ -1,5 +1,6 @@
 import setting from '../js/settings/index';
 import galleryTemplate from '../templates/gallery-template.hbs';
+import scroll from './scrollTo/indexScroll';
 const { BASE_URL, API_KEY } = setting;
 const blockForMarkupRef = document.querySelector('.wrapper-tamplate'); 
 
@@ -18,6 +19,8 @@ export default class NewsApiService {
             .then(renderImages) 
             .then(data => {
                 this.page +=1;
+                scroll();
+                console.dir(document.documentElement);
             });
             
     }
