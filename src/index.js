@@ -1,6 +1,7 @@
 import './styles.css';
 import NewsApiService from './js/apiService';
 import {alert, defaultModules, PNotifyMobile, error} from './js/notifier';
+// import scroll from './js/scrollTo/indexScroll';
 
 var debounce = require('lodash.debounce');
 
