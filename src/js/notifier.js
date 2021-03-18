@@ -1,4 +1,4 @@
-import { alert, defaultModules, error } from '.././../node_modules/@pnotify/core/dist/PNotify.js';
+import { alert, defaultModules, error} from '.././../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from '.././../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import '@pnotify/core/dist/Material.css';
 import { defaults } from '@pnotify/core';
@@ -21,7 +21,8 @@ defaultModules.set(PNotifyMobile, {});
 
 export {alert, defaultModules, PNotifyMobile, error};
 defaults.delay = 2000;
-// defaults.error = error;
+defaults.error = error;
+
 
 
 

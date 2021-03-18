@@ -9,8 +9,9 @@ const inputName = inputFormRef.elements.query;
 const buttonMoreImagesRef = document.querySelector('.button-more-images');
 buttonMoreImagesRef.addEventListener('click', fetchArticles);
 
-const newsApiService = new NewsApiService;
 
+const newsApiService = new NewsApiService;
+defaultModules.set(PNotifyMobile, {});
 //прослушиватель на инпут + debounce
 inputName.addEventListener('input', debounce(() =>{
     newsApiService.query = inputName.value;
@@ -20,8 +21,6 @@ inputName.addEventListener('input', debounce(() =>{
         return error({
             title: 'Empty field.',
             text: 'Please enter your request!',
-            dir1: 'down', dir2: 'right', 
-            firstpos1: 90, firstpos2: 90,
             delay: 2000
           });
     }

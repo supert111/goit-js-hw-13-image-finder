@@ -22,7 +22,6 @@ export default class NewsApiService {
             
     }
     resetPage() {
-        //blockForMarkupRef.innerHTML = '';
         this.page = 1;
         this.clearBlockForMarkup ();
     }
