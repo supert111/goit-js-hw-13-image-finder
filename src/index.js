@@ -1,6 +1,6 @@
 import './styles.css';
 import NewsApiService from './js/apiService';
-import {alert, defaultModules, PNotifyMobile} from './js/notifier';
+import {alert} from './js/notifier';
 
 var debounce = require('lodash.debounce');
 
@@ -12,13 +12,10 @@ const heroTitleRef = document.querySelector('.hero-title');
 buttonMoreImagesRef.addEventListener('click', fetchArticlesOnButton);
 
 const newsApiService = new NewsApiService;
-defaultModules.set(PNotifyMobile, {});
 
 inputSearchKey .addEventListener('input', debounce(() =>{
     newsApiService.query = inputSearchKey.value;
     heroTitleRef.classList.add('is-hiden');
-    buttonMoreImagesRef.classList.remove('is-hiden');
-
 
     if (newsApiService.query === '') {
         newsApiService.clearBlockForMarkup ();

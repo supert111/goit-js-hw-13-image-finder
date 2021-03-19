@@ -2,7 +2,7 @@ import setting from '../js/settings/index';
 import galleryTemplate from '../templates/gallery-template.hbs';
 import scroll from './scrollTo/indexScroll';
 import buttonMoreImagesRef from '../index';
-import {error} from '../js/notifier';
+import {alert, error} from '../js/notifier';
 const { BASE_URL, API_KEY } = setting;
 const blockForMarkupRef = document.querySelector('.wrapper-tamplate'); 
 
@@ -13,7 +13,7 @@ export default class NewsApiService {
         this.page = 1;
     }
 
-   async fetchArticles() {
+    async fetchArticles() {
         try{
             const url = 
             `${BASE_URL}/api/?image_type=photo&orientation=horizontal&q=${this.searchKey}&page=${this.page}&per_page=12&key=${API_KEY}`;
@@ -24,7 +24,15 @@ export default class NewsApiService {
         }
             const imageTampl = await response.json();
             if(imageTampl.hits.length === 0) {
+                alert({
+                    title: 'Empty field.',
+                    text: 'Please enter your request!',
+                    delay: 500
+                });
                 this.addClassHiden ();
+            }
+            else {
+                this.removeClassHiden ();
             }
 
             const scrollDownNextPage = await renderImages(imageTampl);
@@ -39,9 +47,9 @@ export default class NewsApiService {
                 text: 'Please enter your request!',
                 delay: 500
             });
-        }
+        };
                           
-    }
+    };
     
     resetPage() {
         this.page = 1;
@@ -56,6 +64,9 @@ export default class NewsApiService {
         buttonMoreImagesRef.classList.add('is-hiden');
     }
     
+    removeClassHiden () {
+        buttonMoreImagesRef.classList.remove('is-hiden');
+    }
     get query() {
         return this.searchKey;
     }
