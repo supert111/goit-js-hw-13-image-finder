@@ -23,7 +23,7 @@ img {
   display: block;
   max-height: 100%;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .container {
@@ -49,6 +49,16 @@ height: 40px;
 border-width: 3px;
 border-radius: 5px;
 }
+.hero-title {
+  display: block;
+  text-align: center; 
+  margin: 100px auto;
+  color: darkred;
+  font-size: 3em; 
+}
+.hero-title.is-hiden {
+display: none;
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -72,6 +82,10 @@ border-radius: 5px;
   padding: 10px 31px;
   cursor: pointer;
 }
+.button-more-images.is-hiden {
+  display: none;
+}
+
 
 .material-icons.green { 
   color: green; 
