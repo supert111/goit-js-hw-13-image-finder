@@ -4,6 +4,7 @@ var scrollHeight = Math.max(
     document.body.clientHeight, document.documentElement.clientHeight,
   );
 let totalHeight = 0;
+
 export default function scroll() {
     window.scrollTo({
         top: totalHeight += scrollHeight,
